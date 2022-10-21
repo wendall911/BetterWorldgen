@@ -112,15 +112,15 @@ dependencies {
         jarJar.pin(it, "${spectrelib_version}")
     }
 
-    compileOnly fg.deobf("mezz.jei:jei-1.19.2-common-api:${jei_version}")
-    implementation fg.deobf("mezz.jei:jei-1.19.2-forge:${jei_version}")
-
-    runtimeOnly fg.deobf("curse.maven:architectury-419699:3984018")
-    runtimeOnly fg.deobf("curse.maven:biomemakeover-567709:3942516")
-    runtimeOnly fg.deobf("curse.maven:terrablender-563928:4013816")
-    runtimeOnly fg.deobf("curse.maven:byg-247560:4027228")
-    runtimeOnly fg.deobf("curse.maven:simpletextoverlay-321283:3995717")
-    runtimeOnly fg.deobf("curse.maven:homeostatic-634466:4032670")
+    if (System.getenv('DATA_GEN') == null) {
+        runtimeOnly fg.deobf("mezz.jei:jei-1.19.2-forge:${jei_version}")
+        runtimeOnly fg.deobf("curse.maven:architectury-419699:3984018")
+        runtimeOnly fg.deobf("curse.maven:biomemakeover-567709:3942516")
+        runtimeOnly fg.deobf("curse.maven:terrablender-563928:4013816")
+        runtimeOnly fg.deobf("curse.maven:byg-247560:4027228")
+        runtimeOnly fg.deobf("curse.maven:simpletextoverlay-321283:3995717")
+        runtimeOnly fg.deobf("curse.maven:homeostatic-634466:4032670")
+    }
 }
 
 compileJava {

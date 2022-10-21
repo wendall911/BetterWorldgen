@@ -25,25 +25,24 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
     modImplementation group: 'com.illusivesoulworks.spectrelib', name: 'spectrelib-fabric', version: "${spectrelib_range}"
-
-    modRuntimeOnly "curse.maven:architectury-419699:3984016"
-    modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-    modCompileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    modCompileOnly "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
-
-    modRuntimeOnly "curse.maven:architectury-419699:3984016"
-    modRuntimeOnly "curse.maven:biomemakeover-412182:3942509"
-    modRuntimeOnly "curse.maven:terrablender-565956:3966341"
-    modRuntimeOnly "curse.maven:byg-391378:4036205"
-    modRuntimeOnly "curse.maven:geckolib-388172:4036063"
-
-    modRuntimeOnly("com.terraformersmc:modmenu:${mod_menu_version}") {
-        transitive = false
-    }
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":Common")
 
     include group: 'com.illusivesoulworks.spectrelib', name: 'spectrelib-fabric', version: "${spectrelib_version}"
+
+    if (System.getenv('DATA_GEN') == null) {
+        modRuntimeOnly "curse.maven:architectury-419699:3984016"
+        modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+        modRuntimeOnly "curse.maven:architectury-419699:3984016"
+        modRuntimeOnly "curse.maven:biomemakeover-412182:3942509"
+        modRuntimeOnly "curse.maven:terrablender-565956:3966341"
+        modRuntimeOnly "curse.maven:byg-391378:4036205"
+        modRuntimeOnly "curse.maven:geckolib-388172:4036063"
+        modRuntimeOnly("com.terraformersmc:modmenu:${mod_menu_version}") {
+            transitive = false
+        }
+    }
+
 }
 
 loom {
