@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "betterworldgen.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "NoiseRouterDataOverride",
+    "TerrainProviderOverride"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "${refmap_target}refmap.json"
+}
